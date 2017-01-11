@@ -7,7 +7,7 @@ namespace GameOfLife.Kata
 {
     public class GameOfLifeSimulation
     {
-        private IEnumerable<Cell> _cells;
+        private readonly IEnumerable<Cell> _cells;
         public EventHandler<TickEventArgs> Ticks;
 
         public GameOfLifeSimulation(InitialSeed initialSeed)
@@ -29,7 +29,7 @@ namespace GameOfLife.Kata
                 while (!cancellationToken.IsCancellationRequested)
                 {
                     var cells = count == 0 ? _cells : IterateTick();
-                    Ticks?.Invoke(this, new TickEventArgs(cells));
+                    Ticks.Invoke(this, new TickEventArgs(cells));
                     count++;
                 }
             };

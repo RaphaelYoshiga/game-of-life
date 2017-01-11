@@ -36,7 +36,7 @@ namespace GameOfLife.Kata.UnitTests
         [Test]
         public void GenerateMultipleTicks()
         {
-            var gameOfLife = new GameOfLifeSimulation(new InitialSeed());
+            var gameOfLife = new GameOfLifeSimulation(new InitialSeed(new List<Cell>()));
             gameOfLife.Ticks += ReceiveTicks;
 
             gameOfLife.StartSimulation(_cancellationTokenSource);
